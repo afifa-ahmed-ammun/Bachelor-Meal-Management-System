@@ -13,26 +13,14 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'users_table_updated';
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
+        'name',
         'email',
-        'phone',
-        'apartment',
-        'role',
         'password',
-        'balance',
     ];
 
     /**
@@ -55,7 +43,6 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'balance' => 'decimal:2',
         ];
     }
 }

@@ -1,0 +1,21 @@
+2025-05-07 08:08:47 - Payment process started for user: 8
+2025-05-07 08:08:47 - Payment details: Amount=20, Method=bkash, TransactionID=986628209
+2025-05-07 08:08:47 - Query: INSERT INTO payments (user_id, amount, payment_method, transaction_id, status, payment_date) 
+                        VALUES (?, ?, ?, ?, ?, NOW())
+2025-05-07 08:08:47 - Parameters: user_id=8, amount=20, method=bkash, transaction=986628209, status=pending
+2025-05-07 08:08:47 - Payment record inserted successfully
+2025-05-07 08:08:47 - Transaction committed successfully
+2025-05-07 08:30:41 - Payment process started for user: 4
+2025-05-07 08:30:41 - Payment details: Amount=200, Method=bkash, TransactionID=23579
+2025-05-07 08:30:41 - Query: INSERT INTO payments (user_id, amount, payment_method, transaction_id, status, payment_date) 
+                        VALUES (?, ?, ?, ?, ?, NOW())
+2025-05-07 08:30:41 - Parameters: user_id=4, amount=200, method=bkash, transaction=23579, status=pending
+2025-05-07 08:30:41 - Payment record inserted successfully
+2025-05-07 08:30:41 - Transaction committed successfully
+2025-05-13 16:14:07 - Payment process started for user: 12
+2025-05-13 16:14:07 - Payment details: Amount=20, Method=bkash, TransactionID=275398
+2025-05-13 16:14:07 - Query: INSERT INTO payments (user_id, amount, payment_method, transaction_id, status, payment_date) 
+                        VALUES (?, ?, ?, ?, ?, NOW())
+2025-05-13 16:14:07 - Parameters: user_id=12, amount=20, method=bkash, transaction=275398, status=pending
+2025-05-13 16:14:07 - Payment record inserted successfully
+2025-05-13 16:14:07 - Transaction committed successfully
