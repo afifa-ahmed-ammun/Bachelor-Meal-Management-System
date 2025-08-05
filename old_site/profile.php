@@ -229,7 +229,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="inventory.php">Inventory</a>
                 <a href="payments.php">Payments</a>
                 <a href="profile.php" class="active">Profile</a>
-                <a href="index.html">Logout</a>
+                <a href="logout.php">Logout</a>
             </div>
         </div>
     </nav>

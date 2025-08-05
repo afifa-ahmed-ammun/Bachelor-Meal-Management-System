@@ -1,37 +1,35 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\UserDashboardController;
-use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\MealController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
-// Test route for CSRF
-Route::get('/test-csrf', function () {
-    return view('test-csrf');
-});
-
-Route::post('/test-csrf', function () {
-    return response()->json(['message' => 'CSRF working!']);
-});
-
-// Authentication Routes
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+// Public routes
+Route::get('/', [AuthController::class, 'index'])->name('home');
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
+Route::post('/signup', [AuthController::class, 'signup']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register'])->name('register.process');
+// Protected routes
+Route::middleware(['auth'])->group(function () {
+    // Admin routes
+    Route::middleware(['role:admin'])->group(function () {
+        Route::get('/admin/dashboard', [DashboardController::class, 'adminDashboard'])->name('admin.dashboard');
+    });
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
-// Dashboard Routes
-Route::get('/user/dashboard', [UserDashboardController::class, 'index'])->name('user.dashboard');
-Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
-
-// Admin Actions
-Route::post('/admin/approve-payment', [AdminDashboardController::class, 'approvePayment'])->name('admin.approve-payment');
-Route::post('/admin/reject-payment', [AdminDashboardController::class, 'rejectPayment'])->name('admin.reject-payment');
-Route::post('/admin/send-notification', [AdminDashboardController::class, 'sendNotification'])->name('admin.send-notification');
+    // User routes
+    Route::middleware(['role:member'])->group(function () {
+        Route::get('/user/dashboard', [DashboardController::class, 'userDashboard'])->name('user.dashboard');
+        Route::get('/user/payments', [PaymentController::class, 'index'])->name('user.payments');
+        Route::post('/user/payments', [PaymentController::class, 'store'])->name('user.payments.store');
+        Route::get('/user/meals', [MealController::class, 'index'])->name('user.meals');
+        Route::post('/user/meals', [MealController::class, 'store'])->name('user.meals.store');
+    });
+    
+    // Common authenticated routes
+    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+});

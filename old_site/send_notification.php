@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $notification_count = 0;
-        // Insert notification for each member #13.05B
+        // Insert notification for each member
         while ($member = $members_result->fetch_assoc()) {
             $insert_query = "INSERT INTO notifications (user_id, type, title, message) 
                            VALUES (?, ?, ?, ?)";

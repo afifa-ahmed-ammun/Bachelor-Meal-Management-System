@@ -574,7 +574,7 @@ $requests_result = $conn->query($requests_query);
       </div>
     </div>
 
-    <!-- Notification System #13.05F-->
+    <!-- Notification System -->
     <div class="glass-card">
       <h2 class="section-heading">Send Notification</h2>
       <div class="notification-form">

@@ -171,7 +171,7 @@ $requests_result = $conn->query($requests_query);
                 <a href="admin-dashboard.php">Dashboard</a>
                 <a href="admin-inventory.php" class="active">Inventory</a>
                 <a href="admin-members.php">Members</a>
-                <a href="index.html">Logout</a>
+                <a href="logout.php">Logout</a>
             </div>
         </div>
     </nav>

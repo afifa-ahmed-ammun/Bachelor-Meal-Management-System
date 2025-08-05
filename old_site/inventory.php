@@ -160,8 +160,8 @@ $alerts_result = $conn->query($alerts_query);
                 <a href="meals.html">My Meals</a>
                 <a href="inventory.php" class="active">Inventory</a>
                 <a href="payments.php">Payments</a>
-                <a href="profile.php">Profile</a>
-                <a href="index.html">Logout</a>
+                <a href="profile.html">Profile</a>
+                <a href="logout.php">Logout</a>
             </div>
         </div>
     </nav>

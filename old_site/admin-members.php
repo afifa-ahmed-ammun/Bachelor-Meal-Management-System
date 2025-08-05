@@ -421,7 +421,7 @@ if (isset($_POST['cancel_bazar'])) {
                 <a href="admin-dashboard.php">Dashboard</a>
                 <a href="admin-inventory.php">Inventory</a>
                 <a href="admin-members.php" class="active">Members</a>
-                <a href="index.html">Logout</a>
+                <a href="logout.php">Logout</a>
             </div>
         </div>
     </nav>

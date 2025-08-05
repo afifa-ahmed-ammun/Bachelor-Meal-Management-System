@@ -307,7 +307,7 @@ $scheduled_meals = $stmt->get_result();
              <a href="inventory.php">Inventory</a>
                 <a href="payments.php">Payments</a>
                 <a href="profile.php">Profile</a>
-                <a href="index.html">Logout</a>
+                <a href="logout.php">Logout</a>
             </div>
         </div>
     </nav>

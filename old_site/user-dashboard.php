@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 $user_name = $_SESSION['user_name'];
 
-// Update notifications query to fetch all types of notifications #13.05B
+// Update notifications query to fetch all types of notifications
 $notifications_query = "SELECT title, message, type, created_at 
                        FROM notifications 
                        WHERE user_id = $user_id 
@@ -68,7 +68,7 @@ $balance_info = $stmt->get_result()->fetch_assoc();
 // Make sure balance is positive for display
 $current_balance = abs($balance_info['balance']); // Convert negative to positive
 
-// Fetch recent meals #13.05B
+// Fetch recent meals
 $recent_meals_query = "SELECT 
     sm.id,
     sm.scheduled_date as date,
@@ -435,15 +435,14 @@ $recent_meals = $stmt->get_result();
             </div>
         </section>
 
-        <!-- Recent Meals Section #13F --> 
+        <!-- Recent Meals Section -->
         <section class="glass-card recent-meals-section">
-            <h2 class="section-heading">Recent Meals</h2
-            >
+            <h2 class="section-heading">Recent Meals</h2>
             <table class="meals-table">
                 <thead>
                     <tr>
                         <th>Date</th>
-                        <th>Meal Time</th>
+                        <th>Meal Type</th>
                         <th>Meal</th>
                         <th>Quantity</th>
                         <th>Price</th>
